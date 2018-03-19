@@ -31,13 +31,12 @@ words = ["hello", "world", "spam", "eggs"]
 for word in words:  ##for each word in the list of words do the following##
   print(word + "!")
   
-  for i in range(5):
+for i in range(5):
    print("hello!")
   
-  
- for i in range(0, 20, 2):
-  print(i)
+for i in range(0, 20, 2):
+   print(i)
 
 for i in range(10):
-if not i % 2 == 0:
-print(i+1)
+   if not i % 2 == 0:
+      print(i+1)
