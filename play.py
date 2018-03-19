@@ -25,7 +25,7 @@ while counter <= max_index:
    word = words[counter]  ##prints the item at the index referenced by counter variable
    print(word + "!")
    counter = counter + 1  ##increments the counter up one index value.
-
+##############################################
 ##the for construct will run the iteration until it has hit the last item in the index without the need of a counter##
 words = ["hello", "world", "spam", "eggs"]
 for word in words:  ##for each word in the list of words do the following##
@@ -41,5 +41,32 @@ for i in range(10):     ##for each item between 0 - 9
    if not i % 2 == 0:   ##If the remainder is not zero... 
       print(i+1)        ##...print that number plus 1
                         ## so prints all even numbers between 2 and 10
-         
-         
+##############################################         
+##Here is an example of a function named my_func. It takes no arguments, and prints "spam" three times. It is defined, and then called. The statements in the function are executed only when the function is called.
+def my_func():
+   print("spam")
+   print("spam")
+   print("spam")
+
+my_func()
+##############################################
+##One argument function below##
+def print_double(x):
+print(2 * x)
+
+print_double(3)
+##############################################
+def print_sum_twice(x, y):
+   print(x + y)
+   print(x + y)
+
+print_sum_twice(5, 8)
+###############################################
+def function(variable):
+   variable += 1
+   print(variable)
+
+function(7)       ## returns a value of 8
+print(variable)   ##returns an error because variable is only defined inside the function
+
+##############################################
