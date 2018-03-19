@@ -67,7 +67,7 @@ def function(variable):
    print(variable)
 
 function(7)       ## returns a value of 8
-print(variable)   ##returns an error because variable is only defined inside the function
+#print(variable)   ##returns an error because variable is only defined inside the function
 
 ##############################################
 
