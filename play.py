@@ -107,8 +107,46 @@ has 3 arguments, a function and 2 integers
 a = 5
 b = 10
 
-print(do_twice(add, a, b)) ## so do twice calls add as the func a as the x and b as the why
+print(do_twice(add, a, b)) ## so do twice calls add as the func a as the x and b as the y
 
 ##############################################
+
+file = open("filename.txt", "r")
+cont = file.read()
+print(cont)
+file.close()
+
+##This will print all of the contents of the file "filename.txt".
+
+##############################################
+
+file = open("filename.txt", "r")
+print(file.read(16))
+print(file.read(4))
+print(file.read(4))
+print(file.read())
+file.close()
+
+
+##############################################
+
+##After all contents in a file have been read, any attempts to read further from that file will return an empty string, because you are trying to read from the end of the file.
+
+file = open("filename.txt", "r")
+file.read()
+print("Re-reading")
+print(file.read())
+print("Finished")
+file.close()
+
+##############################################
+
+
+
+
+
+
+
+
 
 
