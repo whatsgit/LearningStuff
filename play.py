@@ -70,3 +70,45 @@ function(7)       ## returns a value of 8
 print(variable)   ##returns an error because variable is only defined inside the function
 
 ##############################################
+
+##Any code after the return statement will never happen.
+def add_numbers(x, y):
+  total = x + y
+  return total
+  print("This won't be printed")
+
+print(add_numbers(4, 5)) ##returns a value of 9
+
+##############################################
+
+def shout(word):
+  """             ##Docstring
+  Print a word with an
+  exclamation mark following it.
+  """             ##Docstring
+  print(word + "!")
+    
+shout("spam")
+
+##############################################
+
+def add(x, y): 
+  return x + y
+"""
+This feines the add() function
+which has 2 arguments
+"""
+def do_twice(func, x, y):
+  return func(func(x, y), func(x, y))
+"""
+This defines the do twice function which
+has 3 arguments, a function and 2 integers
+"""
+a = 5
+b = 10
+
+print(do_twice(add, a, b)) ## so do twice calls add as the func a as the x and b as the why
+
+##############################################
+
+
