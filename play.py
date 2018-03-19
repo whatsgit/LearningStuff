@@ -37,6 +37,9 @@ for i in range(5):
 for i in range(0, 20, 2):
    print(i)
 
-for i in range(10):
-   if not i % 2 == 0:
-      print(i+1)
+for i in range(10):     ##for each item between 0 - 9
+   if not i % 2 == 0:   ##If the remainder is not zero... 
+      print(i+1)        ##...print that number plus 1
+                        ## so prints all even numbers between 2 and 10
+         
+         
