@@ -8,3 +8,5 @@ print(range(20) == range(0, 20))
 
 nums = list(range(5, 8))
 print(len(nums))
+
+print(list (range(8,3)))
