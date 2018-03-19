@@ -1,2 +1,2 @@
-numbers = list(range(10))
-print(numbers)
+nums = list(range(5))
+print(nums[4])
