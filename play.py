@@ -37,3 +37,7 @@ for word in words:  ##for each word in the list of words do the following##
   
  for i in range(0, 20, 2):
   print(i)
+
+for i in range(10):
+if not i % 2 == 0:
+print(i+1)
