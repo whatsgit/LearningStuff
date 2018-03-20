@@ -141,6 +141,48 @@ file.close()
 
 ##############################################
 
+file = open("newfile.txt", "w") ##opens/creates new txt file and assigns it to variable file "w" mode creates new if not there##
+file.write("This has been written to a file")  ##invokes the write() method for the opened file
+file.close()
+
+file = open("newfile.txt", "r")
+print(file.read())
+file.close()
+##When a file is opened in write mode, the file's existing content is deleted.##
+##############################################
+##When a file is opened in write mode, the file's existing content is deleted.##
+
+##When a file is opened in write mode, the file's existing content is deleted.##
+
+##When a file is opened in write mode, the file's existing content is deleted.##
+
+##When a file is opened in write mode, the file's existing content is deleted.##
+
+##When a file is opened in write mode, the file's existing content is deleted.##
+
+##When a file is opened in write mode, the file's existing content is deleted.##
+
+##############################################
+
+file = open("newfile.txt", "r")
+print("Reading initial contents")   ## Not from the file##
+print(file.read())                  ##Would  read what is in file##
+print("Finished")
+file.close()
+
+##When a file is opened in write mode, the file's existing content is deleted.##
+
+file = open("newfile.txt", "w")     ##This woudl delete what was previously in teh file##
+file.write("Some new text")         ##write to $file##
+file.close()
+
+file = open("newfile.txt", "r")
+print("Reading new contents")
+print(file.read())                    ##shows contents of $file aka newfile.txt
+print("Finished")
+file.close()
+
+##############################################
 
 
 
