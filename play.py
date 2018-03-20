@@ -110,6 +110,20 @@ b = 10
 print(do_twice(add, a, b)) ## so do twice calls add as the func a as the x and b as the y
 
 ##############################################
+##An expression is tested, and if the result comes up false, an exception is raised.
+##Assertions are carried out through use of the assert statement.
+
+print(1)			##prints
+assert 2 + 2 == 4	##does not print but but is true so program continues to run
+print(2)			##prints
+assert 1 + 1 == 3	##returns an assertion error and ends program
+print(3)			##never prints
+
+##The assert can take a second argument that is passed to the AssertionError raised if the assertion fails. 
+temp = -10
+assert (temp >= 0), "Colder than absolute zero!"	##AssertionError: Colder than absolute zero!##
+
+##############################################
 
 file = open("filename.txt", "r")
 cont = file.read()
@@ -183,12 +197,74 @@ print("Finished")
 file.close()
 
 ##############################################
+##The write() method returns the number of bytes written to a file, if successful.##
+msg = "Hello world!"
+file = open("newfile.txt", "w")
+amount_written = file.write(msg)
+print(amount_written)
+file.close()
 
+##If a file write operation is successful, which one of these statements will be true?##
+##file.write(msg) == len(msg)##
 
+##############################################
 
+##It is good practice to avoid wasting resources by making sure that files are always closed after they have been used. One way of doing this is to use try and finally.##
+try:
+   f = open("filename.txt")
+   print(f.read())
+finally:
+   f.close()
 
+##An alternative way of doing this is using with statements. This creates a temporary variable (often called f), which is only accessible in the indented block of the with statement.##
 
+with open("filename.txt") as f:
+   print(f.read())
 
+##############################################
 
+##The None object is used to represent the absence of a value.##
 
+>>> None == None
+True
+>>> None
+>>> print(None)
+None
+>>>
+
+##The None object is returned by any function that doesn't explicitly return anything else. ##
+def some_func():
+   print("Hi!") 		##prints Hi!##
+
+var = some_func()
+print(var)				##returns None##
+
+##############################################
+
+##Dictionaries are data structures used to map arbitrary keys to values.
+##Lists can be thought of as dictionaries with integer keys within a certain range.
+##Dictionaries can be indexed in the same way as lists, using square brackets containing keys.
+##Each element in a dictionary is represented by a key:value pair.
+##An empty dictionary is defined as {}.
+
+ages = {"Dave": 24, "Mary": 42, "John": 58}
+print(ages["Dave"]) ##prints 24
+print(ages["Mary"]) ##prints 42
+
+##Trying to index a key that isn't part of the dictionary returns a KeyError.
+
+primary = {
+  "red": [255, 0, 0], 
+  "green": [0, 255, 0], 
+  "blue": [0, 0, 255], 
+}
+
+print(primary["red"])		##prints [255,0,0]
+print(primary["yellow"])	##returns KeyError:'yellow'
+
+##Only immutable objects can be used as keys to dictionaries. Immutable objects are those that can't be changed. So far, the only mutable objects you've come across are lists and dictionaries. Trying to use a mutable object as a dictionary key causes a TypeError. 
+
+bad_dict = {
+  [1, 2, 3]: "one two three",  ##returns TypeError: unhashable type: 'list'
+}
 
