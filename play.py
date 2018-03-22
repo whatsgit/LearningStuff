@@ -268,3 +268,92 @@ bad_dict = {
   [1, 2, 3]: "one two three",  ##returns TypeError: unhashable type: 'list'
 }
 
+##Just like lists, dictionary keys can be assigned to different values.
+##However, unlike lists, a new dictionary key can also be assigned a value, not just ones that already exist. 
+
+squares = {1: 1, 2: 4, 3: "error", 4: 16,}
+squares[8] = 64
+squares[3] = 9
+print(squares)    ##result {8: 64, 1: 1, 2: 4, 3: 9, 4: 16}
+
+#SO after reading the comments am I understanding this right? The squares[3] assignment could have just as likely changed 4: 16 to 4: 9 instead of 3: "error" to 3: 9 if it had placed {1: 1, 2: 4, 3: 9, 4: 16, 8: 64} instead of {8: 64, 1: 1, 2: 4, 3: 9, 4: 16} ? Or is the key the literal indexed position and "error" would have been replaced regardless of its place in the dictionary... this opposed to list indexing up from [0] ...
+
+#To determine whether a key is in a dictionary, you can use in and not in, just as you can for a list.
+
+nums = {
+  1: "one",
+  2: "two",
+  3: "three",
+}
+print(1 in nums)
+print("three" in nums)
+print(4 not in nums)
+
+>>>
+True
+False
+True
+>>>
+
+#A useful dictionary method is get. It does the same thing as indexing, but if the key is not found in the dictionary it returns another specified value instead ('None', by default).
+
+pairs = {1: "apple",
+  "orange": [2, 3, 4], 
+  True: False, 
+  None: "True",
+}
+
+print(pairs.get("orange"))
+print(pairs.get(7))
+print(pairs.get(12345, "not in dictionary"))
+
+>>>
+[2, 3, 4]
+None
+not in dictionary
+>>>
+
+##############################################
+###Tuples#####################################
+##############################################
+
+##Tuples are very similar to lists, except that they are immutable (they cannot be changed).
+##Also, they are created using parentheses, rather than square brackets. 
+
+words = ("spam", "eggs", "sausages",)
+
+##You can access the values in the tuple with their index, just as you did with lists:
+
+print(words[0])
+
+##Trying to reassign a value in a tuple causes a TypeError.
+
+words[1] = "cheese"
+
+>>>
+TypeError: 'tuple' object does not support item assignment
+>>>
+
+##Like lists and dictionaries, tuples can be nested within each other.
+##Tuples can be created without the parentheses, by just separating the values with commas.
+##Tuples are faster than lists, but they cannot be changed.
+
+my_tuple = "one", "two", "three"
+print(my_tuple[0])
+>>>
+one
+>>>
+
+##An empty tuple is created using an empty parenthesis pair.
+tpl = ()
+
+# list
+list = ["one", "two"]
+
+
+# dictionary 
+dict = {1:"one", 2:"two"}
+
+
+# tuple 
+tp = ("one", "two")
