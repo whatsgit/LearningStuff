@@ -422,16 +422,14 @@ print(sqs[7:5:-1])
 ##############################################
 ###List Comprehension#########################
 ##############################################
+
 ##List comprehensions are inspired by set-builder notation in mathematics.
-#List comprehensions are a useful way of quickly creating lists whose contents obey a simple rule. For example, we can do the following: 
-
+##List comprehensions are a useful way of quickly creating lists whose contents obey a simple rule. For example, we can do the following: 
 cubes = [i**3 for i in range(5)]
-
 print(cubes)
 >>>
 [0, 1, 8, 27, 64]
 >>>
-
 ##range 5 means from 0 to 4 
 ##giving (0, 1, 2, 3, 4.) making 5 in total. 
 ##and the key is x**3. 
@@ -448,10 +446,8 @@ A list of even numbers between 0 and 18
 >>>
 
 ##A list comprehension can also contain an if statement to enforce a condition on values in the list.
-
 evens=[i**2 for i in range(10) if i**2 % 2 == 0]
 print(evens)
-
 >>>
 [0, 4, 16, 36, 64]
 >>> 
@@ -459,7 +455,129 @@ print(evens)
 ##You can add as many 'if's as you want! 
 evens=[i**2 for i in range(10) if i**2 % 2 == 0 if i**2 % 3 == 0] 
 print(evens)
-
 >>>
 [0, 36]
 >>>
+
+
+##Create a list of multiples of 3 from 0 to 20.
+a = [i for i in range(20) if i%3==0]
+
+##Trying to create a list in a very extensive range will result in a MemoryError. This code shows an example where the list comprehension runs out of memory. This issue is solved by generators, which are covered in the next module.
+even = [2*i for i in range(10**100)]
+>>>
+MemoryError
+>>>
+
+##create a list of numbers multiplied by 10 in the range of 5 to 9.
+
+a = [x*10 for x in range(5 , 9)]
+
+
+##############################################
+###String Formatting##########################
+##############################################
+
+##So far, to combine strings and non-strings, you've converted the non-strings to strings and added them. String formatting provides a more powerful way to embed non-strings within strings. String formatting uses a string's format method to substitute a number of arguments in the string.
+
+nums = [4, 5, 6]
+msg = "Numbers: {0} {1} {2}". format(nums[0], nums[1], nums[2])
+print(msg)
+			##Each argument of the format function is placed in the string at the corresponding position, which is determined using 			the curly braces { }.
+>>>
+Numbers: 4 5 6
+>>>
+
+print("{0}{1}{0}".format("abra", "cad"))
+>>>
+abracadabra
+>>>
+
+##String formatting can also be done with named arguments.
+a = "{x}, {y}".format(x=5, y=12)
+print(a)
+>>>
+5, 12
+>>>
+
+
+##############################################
+###Useful Functions ##########################
+##############################################
+
+##Python contains many useful built-in functions and methods to accomplish common tasks.
+##join - joins a list of strings with another string as a separator.
+##replace - replaces one substring in a string with another.
+##startswith and endswith - determine if there is a substring at the start and end of a string, respectively.
+##To change the case of a string, you can use lower and upper.
+##The method split is the opposite of join, turning a string with a certain separator into a list.
+
+print(", ".join(["spam", "eggs", "ham"]))
+#prints "spam, eggs, ham"
+
+print("Hello ME".replace("ME", "world"))
+#prints "Hello world"
+
+print("This is a sentence.".startswith("This"))
+# prints "True"
+
+print("This is a sentence.".endswith("sentence."))
+# prints "True"
+
+print("This is a sentence.".upper())
+# prints "THIS IS A SENTENCE."
+
+print("AN ALL CAPS SENTENCE".lower())
+#prints "an all caps sentence"
+
+print("spam, eggs, ham".split(", "))
+#prints "['spam', 'eggs', 'ham']"
+
+##To find the maximum or minimum of some numbers or a list, you can use max or min.
+##To find the distance of a number from zero (its absolute value), use abs.
+##To round a number to a certain number of decimal places, use round.
+##To find the total of a list, use sum.
+
+print(min(1, 2, 3, 4, 0, 2, 1))
+print(max([1, 4, 9, 2, 5, 6, 8]))
+print(abs(-99))
+print(abs(42))
+print(sum([1, 2, 3, 4, 5]))
+>>>
+0
+9
+99
+42
+15
+>>>
+
+a = min([sum([11,22]), max(abs(-30), 2)])
+print(a)
+>>>
+30
+>>>
+
+##Often used in conditional statements, all and any take a list as an argument, and return True if all or any (respectively) of their arguments evaluate to True (and False otherwise).
+##The function enumerate can be used to iterate through the values and indices of a list simultaneously.
+
+nums = [55, 44, 33, 22, 11]
+
+if all([i > 5 for i in nums]):
+   print("All larger than 5")
+
+if any([i % 2 == 0 for i in nums]):
+   print("At least one is even")
+
+for v in enumerate(nums):
+   print(v)
+
+>>>
+All larger than 5
+At least one is even
+(0, 55)
+(1, 44)
+(2, 33)
+(3, 22)
+(4, 11)
+>>>
+
