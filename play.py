@@ -357,3 +357,109 @@ dict = {1:"one", 2:"two"}
 
 # tuple 
 tp = ("one", "two")
+
+
+
+##############################################
+###List Slices################################
+##############################################
+
+##List slices provide a more advanced way of retrieving values from a list. Basic list slicing involves indexing a list with two colon-separated integers. This returns a new list containing all the values in the old list between the indices.
+##Like the arguments to range, the first index provided in a slice is included in the result, but the second isn't.
+
+squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+print(squares[2:6])
+print(squares[3:8])
+print(squares[0:1])
+
+>>>
+[4, 9, 16, 25]
+[9, 16, 25, 36, 49]
+[0]
+>>>
+
+##If the first number in a slice is omitted, it is taken to be the start of the list.If the second number is omitted, it is taken to be the end. 
+##Slicing can also be done on tuples.
+
+squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+print(squares[:7])
+print(squares[7:])
+
+>>>
+[0, 1, 4, 9, 16, 25, 36]
+[49, 64, 81]
+>>>
+
+##List slices can also have a third number, representing the step, to include only alternate values in the slice. [2:8:3] will include elements starting from the 2nd index up to the 8th with a step of 3.
+
+squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+print(squares[::2])
+print(squares[2:8:3])
+
+>>>
+[0, 4, 16, 36, 64]
+[4, 25]
+>>>
+
+##Negative values can be used in list slicing (and normal list indexing). When negative values are used for the first and second values in a slice (or a normal index), they count from the end of the list.
+##Remember, 0 denotes counting from left, whereas counting from right begins with a -1. If a negative value is used for the step, the slice is done backwards. Using [::-1] as a slice is a common and idiomatic way to reverse a list.
+
+
+squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+print(squares[1:-1])
+
+>>>
+[1, 4, 9, 16, 25, 36, 49, 64]
+>>>
+
+sqs = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+print(sqs[7:5:-1])
+>>>
+[49, 36] 
+>>>
+
+
+##############################################
+###List Comprehension#########################
+##############################################
+##List comprehensions are inspired by set-builder notation in mathematics.
+#List comprehensions are a useful way of quickly creating lists whose contents obey a simple rule. For example, we can do the following: 
+
+cubes = [i**3 for i in range(5)]
+
+print(cubes)
+>>>
+[0, 1, 8, 27, 64]
+>>>
+
+##range 5 means from 0 to 4 
+##giving (0, 1, 2, 3, 4.) making 5 in total. 
+##and the key is x**3. 
+##so;
+##    0**3= 0×0×0= 0 
+##    1**3= 1×1×1= 1 
+##    2**3= 2×2×2= 8 
+##    3**3= 3×3×3= 27 
+##    4**3= 4×4×4= 64
+
+nums = [i*2 for i in range(10)]
+>>>
+A list of even numbers between 0 and 18
+>>>
+
+##A list comprehension can also contain an if statement to enforce a condition on values in the list.
+
+evens=[i**2 for i in range(10) if i**2 % 2 == 0]
+print(evens)
+
+>>>
+[0, 4, 16, 36, 64]
+>>> 
+
+##You can add as many 'if's as you want! 
+evens=[i**2 for i in range(10) if i**2 % 2 == 0 if i**2 % 3 == 0] 
+print(evens)
+
+>>>
+[0, 36]
+>>>
