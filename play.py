@@ -68,6 +68,17 @@ def function(variable):
 
 function(7)       ## returns a value of 8
 #print(variable)   ##returns an error because variable is only defined inside the function
+##############################################
+
+##What is returned by functions that don't have a return statement? None
+##The following code outputs None. 
+def my_func(): 
+p = 3 + 6 print(my_func()) 
+
+##On the other hand, the following code outputs 9. 
+def my_func(): p = 3 + 6 
+return p 
+print(my_func())
 
 ##############################################
 
@@ -614,3 +625,123 @@ with open(filename) as f:
 
 print(text)
 
+###########
+
+
+##What is the result of this code?
+nums = (55, 44, 33, 22)
+print(max(min(nums[:2]), abs(-42)))
+
+>>>
+44
+>>>
+
+##############################################
+###Functional Programming#####################
+##############################################
+
+##Functional programming is a style of programming that (as the name suggests) is based around functions.
+##A key part of functional programming is higher-order functions. We have seen this idea briefly in the previous lesson on functions as objects. Higher-order functions take other functions as arguments, or return them as results.
+##The function apply_twice takes another function as its argument, and calls it twice inside its body.
+def apply_twice(func, arg):
+   return func(func(arg))
+
+def add_five(x):
+   return x + 5
+
+print(apply_twice(add_five, 10))
+
+>>>
+20
+>>>
+
+
+
+
+##What is the output of this code?
+
+
+			##define the function TEST
+def test(func, arg):
+  return func(func(arg))
+			##this test function tells us that the test will take the 1st function against the argument and then the 				2nd function against argument result of the 1st
+def mult(x):
+  return x * x
+			##Next we define the mult function the function WITHIN our test function and set the argument (x) as a 					#placeholder# #mutable# can be changed when you call the code 
+print(test(mult, 2))
+
+			##2 is our first argument So (mult,2) is 2 * 2 = 4 ... 4 becomes the second argument in the test() 					return for mult(4)
+
+	
+##Functional programming seeks to use pure functions. Pure functions have no side effects, and return a value that depends only on their arguments.
+##This is how functions in math work: for example, The cos(x) will, for the same value of x, always return the same result.
+##Below are examples of pure and impure functions.
+
+##Pure function:
+ def pure_function(x, y):
+  temp = x + 2*y
+  return temp / (2*x + y)
+##Impure function:
+some_list = []
+
+def impure(arg):
+  some_list.append(arg)
+##The function above is not pure, because it changed the state of some_list.
+
+##############################################
+###Lambdas####################################
+##############################################
+
+##Creating a function normally (using def) assigns it to a variable automatically.
+##This is different from the creation of other objects - such as strings and integers - which can be created on the fly, without assigning them to a variable.
+##The same is possible with functions, provided that they are created using lambda syntax. Functions created this way are known as anonymous.
+##This approach is most commonly used when passing a simple function as an argument to another function. The syntax is shown in the next example and consists of the lambda keyword followed by a list of arguments, a colon, and the expression to evaluate and return. 
+##Lambda functions get their name from lambda calculus, which is a model of computation invented by Alonzo Church.
+
+def my_func(f, arg):
+  return f(arg)
+
+my_func(lambda x: 2*x*x, 5)
+
+##Lambda functions aren't as powerful as named functions.
+##They can only do things that require a single expression - usually equivalent to a single line of code.
+
+#named function
+def polynomial(x):
+    return x**2 + 5*x + 4
+print(polynomial(-4))
+
+#lambda
+print((lambda x: x**2 + 5*x + 4) (-4))
+
+##In the code above, we created an anonymous function on the fly and called it with an argument.
+
+>>>
+0
+0
+>>> 
+
+##Lambda functions can be assigned to variables, and used like normal functions. However, there is rarely a good reason to do this - it is usually better to define a function with def instead.
+
+double = lambda x: x * 2
+print(double(7))
+
+>>>
+14
+>>>
+
+triple = lambda x: x * 3
+add = lambda x, y: x + y
+print(add(triple(3), 4))
+
+>>>
+13
+>>>
+
+
+##############################################
+###Map & Filter###############################
+##############################################
+
+##The built-in functions map and filter are very useful higher-order functions that operate on lists (or similar objects called iterables).
+##The function map takes a function and an iterable as arguments, and returns a new iterable with the function applied to each argument. 
